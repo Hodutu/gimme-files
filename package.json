@@ -11,5 +11,8 @@
   "scripts": {
     "test": "node tests/general-search-client-tests.js",
     "lint": "node node_modules/jshint/bin/jshint ."
+  },
+  "dependencies": {
+    "request": "^2.49.0"
   }
 }
