@@ -2,8 +2,10 @@
 
 var request = require('request');
 
-var url = 'http://www.generalfil.es/files-a/';
+var host = 'http://www.generalfil.es/';
+var url = host + 'files-a/';
 var options = '/?filter=_Video_';
+
 
 var gse = function(title, cb) {
   title = title.replace(/[^(\w)]+/gi, '-').toLowerCase();
@@ -13,6 +15,8 @@ var gse = function(title, cb) {
       links = links.map(function(link){
         return link.split(',').pop().replace(/'/gi, '');
       });
+
+
       console.log(links);
     }
   });
