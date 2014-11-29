@@ -8,8 +8,13 @@ var options = '/?filter=_Video_';
 
 
 var getFile = function(link, cb){
-  request(host + link, function(err, response, body){
-    console.log(JSON.parse(body).link);
+  request(host + link, function(err, response, body) {
+    try {
+      var finalLink = JSON.parse(body).link;
+      cb(null, finalLink);
+    } catch (e) {
+      cb(new Error('Error on response parsing for ' + host+link));
+    }
   });
 };
 
@@ -22,9 +27,9 @@ var gse = function(title, cb) {
         return link.split(',').pop().replace(/'/gi, '');
       });
 
-      console.log(links);
-
-      getFile(links[0]);
+      getFile(links[0], function(error, result){
+        console.log(error, result);
+      });
     }
   });
 };
