@@ -7,6 +7,12 @@ var url = host + 'files-a/';
 var options = '/?filter=_Video_';
 
 
+var getFile = function(link, cb){
+  request(host + link, function(err, response, body){
+    console.log(JSON.parse(body).link);
+  });
+};
+
 var gse = function(title, cb) {
   title = title.replace(/[^(\w)]+/gi, '-').toLowerCase();
   request(url+title+options, function (error, response, body) {
@@ -16,8 +22,9 @@ var gse = function(title, cb) {
         return link.split(',').pop().replace(/'/gi, '');
       });
 
-
       console.log(links);
+
+      getFile(links[0]);
     }
   });
 };
