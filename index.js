@@ -1,6 +1,7 @@
 'use strict';
 
 var request = require('request');
+var async = require('async');
 
 var host = 'http://www.generalfil.es/';
 var url = host + 'files-a/';
@@ -19,6 +20,7 @@ var getFile = function(link, cb){
 };
 
 var gse = function(title, cb) {
+  var finalLinks = [];
   title = title.replace(/[^(\w)]+/gi, '-').toLowerCase();
   request(url+title+options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -27,8 +29,18 @@ var gse = function(title, cb) {
         return link.split(',').pop().replace(/'/gi, '');
       });
 
-      getFile(links[0], function(error, result){
-        console.log(error, result);
+      async.each(links, function(el, next) {
+        getFile(el, function(err, result) {
+          if (err) {
+            next(err);
+            return;
+          }
+          finalLinks.push(result);
+          next();
+        });
+      }, function(err) {
+        // Alles klar
+        cb(err, finalLinks);
       });
     }
   });
@@ -36,7 +48,7 @@ var gse = function(title, cb) {
 
 
 gse('American Dad! S01E01', function(err, result) {
-
+  console.log(err, result);
 });
 
 //GENERALFIL.ES
