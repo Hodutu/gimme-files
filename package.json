@@ -1,15 +1,15 @@
 {
-  "name": "general-search-client",
+  "name": "gimme-files",
   "version": "0.0.1",
   "author": "Michał Budzyński <michal@virtualdesign.pl>",
-  "repository": "git@github.com:Hodutu/general-search-client.git",
+  "repository": "git@github.com:Hodutu/gimme-files.git",
   "devDependencies": {
     "assert": "^1.1.2",
     "jshint": "^2.5.10",
     "precommit-hook": "^1.0.7"
   },
   "scripts": {
-    "test": "node tests/general-search-client-tests.js",
+    "test": "node tests/gimme-files.js",
     "lint": "node node_modules/jshint/bin/jshint ."
   },
   "dependencies": {
