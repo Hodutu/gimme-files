@@ -47,8 +47,4 @@ var gf = function(title, cb) {
 };
 
 
-gf('American Dad! S01E01', function(err, result) {
-  console.log(err, result);
-});
-
-//GENERALFIL.ES
+module.exports = gf;
