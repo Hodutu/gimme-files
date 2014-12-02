@@ -25,6 +25,11 @@ var gf = function(title, cb) {
   request(url+title+options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var links = body.match(/gf_ShowDownloadLink\([\w',?=\/&]+/gi);
+      if (!links || links.length === 0) {
+        cb(new Error('No files found'));
+        return;
+      }
+
       links = links.map(function(link){
         return link.split(',').pop().replace(/'/gi, '');
       });
