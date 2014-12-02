@@ -19,7 +19,7 @@ var getFile = function(link, cb){
   });
 };
 
-var gse = function(title, cb) {
+var gf = function(title, cb) {
   var finalLinks = [];
   title = title.replace(/[^(\w)]+/gi, '-').toLowerCase();
   request(url+title+options, function (error, response, body) {
@@ -47,7 +47,7 @@ var gse = function(title, cb) {
 };
 
 
-gse('American Dad! S01E01', function(err, result) {
+gf('American Dad! S01E01', function(err, result) {
   console.log(err, result);
 });
 
