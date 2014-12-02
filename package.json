@@ -1,6 +1,6 @@
 {
   "name": "gimme-files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Michał Budzyński <michal@virtualdesign.pl>",
   "repository": "git@github.com:Hodutu/gimme-files.git",
   "devDependencies": {
