@@ -1,8 +1,8 @@
 # gimme-files by [@michalbe](http://github.com/michalbe) #
-Scraper for the file search engine
+Ultimate scraper for the file search engines
 
 ### What? ###
-This is a successor of the [filestube-client](https://www.npmjs.org/package/filestube-client) package I worked on earlier this year. Since 01.12.2014 filestube.to is no longer a search engine, because of what `gimme-files` uses [generalfil.es](http://generalfil.es) instead.
+This is a successor of the [filestube-client](https://www.npmjs.org/package/filestube-client) package I worked on earlier this year. Since 01.12.2014 filestube.to is no longer a search engine, because of what `gimme-files` uses [generalfil.es](http://generalfil.es) instead. Eventually I hope it will support all the file search engines that are here (maybe you are, my dear reader, interested in implementing one?).
 
 ### How to use: ###
 ```
@@ -36,7 +36,10 @@ gf("Stawka wieksza niz zycie", function(err, links) {
   ```
 
 ### To Do ###
-All the search options [filestube-client](https://www.npmjs.org/package/filestube-client) supported:
- * hosting
- * file size
- * file type
+ * Multipage support
+ * Multilink support
+ * All the search options [filestube-client](https://www.npmjs.org/package/filestube-client) supported:
+   * hosting
+   * file size
+   * file type
+ * Other search engines
