@@ -13,7 +13,7 @@ then:
 var gf = require('gimme-files');
 
 // grab all the files
-gf("Stawka wieksza niz zycie", function(err, links) {
+gf("Stawka wieksza niz zycie", {}, function(err, links) {
   if (err) {
     return;
   }
@@ -35,6 +35,35 @@ gf("Stawka wieksza niz zycie", function(err, links) {
 });
   ```
 
+// Get all hosts
+// Available files type : Archives | Audio | Video | Docs | Pictures | Applications | CD,DVD
+```javascript
+
+getAllHosts(function(err, data){
+	console.log(data);
+    //[ { key: '500', name: 'direct links' },
+    //  { key: '78', name: 'torrents' },
+    //  { key: '23', name: '4shared.com' },
+    // ... ]
+});
+
+  ```
+  
+// Filter by type of file
+// Available files type : Archives | Audio | Video | Docs | Pictures | Applications | CD,DVD
+```javascript
+
+var options = {types: Video };
+var options = {types: [Video, Audio] };
+var options = {hosts: 93 };
+var options = {hosts: [500, 93] };
+var options = {types: [Video, Audio], hosts: [500, 93] };
+
+// And then call the function
+
+gf("Stawka wieksza niz zycie", options, function(err, links) { ... }
+  ```
+  
 ### To Do ###
  * Multipage support
  * Multilink support
